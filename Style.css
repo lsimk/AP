@@ -1,0 +1,247 @@
+@font-face {
+font-family: 'Mallow';
+src: url('mallow.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+@font-face {
+    font-family: 'WorkSans';
+    src: url('WorkSans-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    margin: 0;
+    font-family: 'WorkSans', sans-serif;
+    overflow: hidden;
+}
+
+header {
+    background-color: #fff;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    position: sticky;
+    top: 0;
+}
+
+.logo img {
+    height: 100px;
+    padding: 50px;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+font-weight: 500;
+}
+
+.banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.banner::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(4, 9, 30, 0.5);
+    z-index: 1;
+}
+
+.banner img {
+    width: 100%;
+    height: 380px;
+    display: block;
+    object-fit: cover;
+}
+
+.banner-text {
+
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    color: #fff;
+    font-size: 5rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 1);
+    text-align: center;
+    font-family: 'mallow', sans-serif;
+    z-index: 2;
+}
+
+.kacheln {
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    gap:20px;
+    padding: 20px;
+    grid-template-columns:repeat(5, 1fr);
+}
+
+.kachel {
+    background: #fff;
+    border: 2px solid #ddd;
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden;
+    aspect-ratio: 1/1;
+    text-decoration: none;
+    color:#000;
+    width: 100%;
+    max-width: 100%;
+    transition: transform 0.3 ease, box-shadow 0.3 ease, background 0.3 ease;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.kacheln:hover .kachel {
+    transform: scale(1);
+}
+
+.kacheln:hover {
+    transform: scale(1);
+    box-shadow: 0 3px 10 px rgba(3, 83, 0, 0.2);
+    z-index: 2;
+}
+
+.kachel img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.kachel-name {
+    padding: 0.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    padding: 0 10px;
+}
+
+
+
+/* Hamburger-Menü sichtbar auf kleineren Bildschirmen */
+@media (max-width: 768px) {
+
+/* Navigation standardmäßig ausgeblendet */
+nav {
+    display: none;
+    flex-direction: column;
+    background-color: #2d4739;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    text-align: center;
+}
+
+/* Navigation sichtbar, wenn aktiv */
+nav.active {
+    display: flex;
+}
+}
+
+/* Kacheln auf mittleren Bildschirmen: 2 Spalten */
+@media (max-width: 900px) {
+    
+    body {
+    overflow: auto; /* Scrollen wieder AN */
+  }
+
+  .kacheln {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  /* 5. Kachel mittig */
+  .kacheln a:nth-child(5) {
+    grid-column: 1 / -1;         /* über beide Spalten */
+    justify-self: center;        /* horizontal zentrieren */
+    width: 50%;                  /* oder feste/maximale Breite */
+  }
+}
+
+
+/* Kacheln auf sehr kleinen Bildschirmen: 1 Spalte */
+@media (max-width: 500px) {
+
+    body {
+    overflow: auto; /* Scrollen wieder AN */
+  }
+
+.banner-text {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    color: #fff;
+    font-size: 5rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 1);
+    text-align: center;
+    font-family: 'mallow', sans-serif;
+    z-index: 2;
+}
+
+
+
+    .kacheln {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+
+
+@media (min-width: 1366px) {
+  .kacheln {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+
+
+  .banner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: 380px;
+    display: block;
+    object-fit: cover;
+}
+
+
+  .banner-text {
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%, -50%);
+    color: #fff;
+    font-size: 5rem;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 1);
+    text-align: center;
+    font-family: 'mallow', sans-serif;
+    z-index: 2;
+}
